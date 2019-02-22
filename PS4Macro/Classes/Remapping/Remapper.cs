@@ -132,8 +132,8 @@ namespace PS4Macro.Classes.Remapping
                 new MappingAction("R2", Keys.O, "R2", 255),
 
                 new MappingAction("Triangle", Keys.C, "Triangle", true),
-                new MappingAction("Circle", Keys.Escape, "Circle", true),
-                new MappingAction("Cross", Keys.Enter, "Cross", true),
+                new MappingAction("Circle", Keys.Enter, "Circle", true),
+                new MappingAction("Cross", Keys.Escape, "Cross", true),
                 new MappingAction("Square", Keys.V, "Square", true),
 
                 new MappingAction("DPad Up", Keys.Up, "DPad_Up", true),
@@ -145,7 +145,7 @@ namespace PS4Macro.Classes.Remapping
                 new MappingAction("R3", Keys.M, "R3", true),
 
                 new MappingAction("Share", Keys.LControlKey, "Share", true),
-                new MappingAction("Options", Keys.Z, "Options", true),
+                new MappingAction("Options", Keys.P, "Options", true),
                 new MappingAction("PS", Keys.LShiftKey, "PS", true),
 
                 new MappingAction("Touch Button", Keys.T, "TouchButton", true)
@@ -172,8 +172,11 @@ namespace PS4Macro.Classes.Remapping
             // Mapping
             else
             {
-                if (!CheckFocusedWindow())
+                if (!CheckFocusedWindow()){
+                    Console.WriteLine("The PS4 window is not in focus.");
                     return;
+                }
+                    
 
                 // Create the default state to modify
                 if (CurrentState == null)

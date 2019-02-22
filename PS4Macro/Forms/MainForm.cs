@@ -101,6 +101,9 @@ namespace PS4Macro.Forms
 
             // Initialize interceptor
             InitInterceptor();
+            
+            
+
         }
 
         private void InitInterceptor()
@@ -168,7 +171,7 @@ namespace PS4Macro.Forms
         private void SetControlMode(ControlMode controlMode)
         {
             m_ControlMode = controlMode;
-
+            Console.WriteLine("SetControlMode:" + controlMode);
             if (m_ControlMode == ControlMode.Macro)
             {
                 // Stop script and remove
@@ -307,6 +310,14 @@ namespace PS4Macro.Forms
             // Load startup file
             if (!string.IsNullOrWhiteSpace(Program.Settings.StartupFile))
                 m_SaveLoadHelper.DirectLoad(Program.Settings.StartupFile);
+            
+            
+            // directly load rremapper window
+            
+            TemporarilySetControlMode(ControlMode.Remapper, () =>
+            {
+                new RemapperForm(m_Remapper).ShowDialog(this);
+            });
         }
 
         /* Macro Player */

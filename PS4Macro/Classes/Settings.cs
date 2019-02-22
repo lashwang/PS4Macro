@@ -45,7 +45,7 @@ namespace PS4Macro.Classes
         {
             AutoInject = false;
             BypassInjection = false;
-            EmulateController = false;
+            EmulateController = true;
             ShowConsole = false;
             StartupFile = null;
         }
